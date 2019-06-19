@@ -13,7 +13,8 @@ async def hi_there(request):
     await ws.send_str('ONE GET')
     return web.Response(text='HI Maaan')
 
-
+# Когда делаем GET урла, мы берем подключение из словаря и начинается генерация рандомных чисел нормального распределения
+# которые отсылаются на клиента, чью сессию мы взяли
 @routes.get('/norm_distr')
 async def norm_distr_generator(request):
     ws = ws_responces['ws1']
@@ -27,7 +28,7 @@ async def norm_distr_generator(request):
             await ws.send_str(f'Hey, i get number for you!: {i}')
     return web.Response(text='start workin`')
 
-
+# Здесь происходит подключение клиента и сохранение его в словарь.
 @routes.get('/websocket')
 async def websocket_handler(request):
     print('WS connection started')
@@ -43,7 +44,7 @@ async def websocket_handler(request):
             if msg.data == 'close':
                 await ws.close()
             else:
-                await ws.send_str(f'Your answer is :{msg.data}')
+                await ws.send_str(f'You are connected, Your data is :{msg.data}')
 
     print('Websocket connection closed')
     return ws

@@ -3,6 +3,7 @@ import aiohttp
 import asyncio
 
 
+# Запускаем подключение и слушаем когда прийдут данные
 async def main():
     session = aiohttp.ClientSession()
     async with session.ws_connect('http://localhost:8080/websocket') as ws:
