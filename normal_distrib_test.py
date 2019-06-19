@@ -6,7 +6,7 @@ import numpy as np
 mu, sigma = 0, 1
 
 s = np.random.normal(mu, sigma, 1000)
-# Really didn`t find how to get 95% of all numbers (think that they brtween -2 and 2 ...)
+# Really didn`t find how to get 95% of all numbers (think that they arebetween -2 and 2 ...)
 for i in s:
     if i >= -2 and i <= 2:
         print(i)
